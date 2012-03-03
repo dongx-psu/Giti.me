@@ -47,4 +47,6 @@ Windows用户请在Git Bash中完成操作，Linux和OSX用户请在Terminal中完成操作。
     `$ git remote add origin git@giti.me:username/repo.git`	    
 	`$ git push origin master`    
 	
-其他Git使用的基本方法请访问：
+Git常用命令速查
+---------------
+![alt Git命令速查](../git.png)
