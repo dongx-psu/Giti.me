@@ -12,7 +12,7 @@ Giti.me User Manual
 Windows用户请在Git Bash中完成操作，Linux和OSX用户请在Terminal中完成操作。
 1.  检查是否已经生成了SSH Key
 	
-	`$ cd ~/.ssh`
+	`$ cd ~/.ssh`       
 	如果显示"No such file or directory"请跳到步骤2，否则跳到步骤3。
 	
 2.  生成新的SSH Key
@@ -27,11 +27,7 @@ Windows用户请在Git Bash中完成操作，Linux和OSX用户请在Terminal中完成操作。
 	
 4.	测试一下   
 	
-	运行`$ ssh -T git@github`，将会显示如下提示：    
-	`hello username, this is gitolite v2.2-ossxp-2-0-g40638fd running on git 1.7.5.4      
-	the gitolite config gives you the following access:      
-	..........`    
-	其中最后的部分为您的版本库授权信息。
+	运行`$ ssh -T git@github`，若您看到了欢迎信息和版本库授权信息，则说明您的配置成功了。
 	
 5.	设置个人信息
  
@@ -43,7 +39,7 @@ Windows用户请在Git Bash中完成操作，Linux和OSX用户请在Terminal中完成操作。
 ------------------
 1.	初始化git版本库，添加README文件
 	
-	运行如下指令将建立一个新git版本库并新建一个README文件。
+	运行如下指令将建立一个新git版本库并新建一个README文件。        
 	`$ mkdir repo`    
 	`$ cd repo`    
 	`$ git init`      
@@ -51,7 +47,7 @@ Windows用户请在Git Bash中完成操作，Linux和OSX用户请在Terminal中完成操作。
 	
 2.	提交修改
 	
-	运行如下指令将提交README文件到服务器
+	运行如下指令将提交README文件到服务器        
 	`$ git add README`     
 	`$ git commit -m "first commit"`   
     `$ git remote add origin git@giti.me:username/repo.git`	    
