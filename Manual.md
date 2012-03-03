@@ -4,8 +4,7 @@ Giti.me User Manual
 准备工作
 --------
 - Windows用户：下载并安装最新版本的[Git for Windows](http://code.google.com/p/msysgit/downloads/list Git for Windows)。
-- Linux用户：安装git包，例如：Ubuntu用户请在Terminal运行`$ sudo apt-get install git`
-- OSX用户：
+- Linux，OSX用户：安装git包，例如：Ubuntu用户请在Terminal运行`$ sudo apt-get install git`
 
 建立Giti，me服务
 ----------------
