@@ -22,9 +22,19 @@ function get_current_user_display_name()
 	return $token['display_name'];
 }
 
+function check_permission($db)
+{
+	$result = $db->translatedQuery('SELECT * FROM permission WHERE user_id=%i', get_current_user_id());
+	if ($result->countReturnedRows() != 0) return true;
+	else return false;
+}
+
 function fetch_data($db)
 {
-	$data = fRecordSet::build('SshKey');
+	$data = fRecordSet::build(
+		'SshKey',
+		array('user_id=' => get_current_user_id())
+	);
 	foreach($data as $row) {
 		$result[] = array(
 			'id' => $row->getId(),
@@ -41,11 +51,11 @@ function fetch_data($db)
 			));
 }
 
-function fetch_data_by_key($db, $ssh_key)
+function fetch_data_by_key($db, $raw_key)
 {
 	$data = fRecordSet::build(
 		'SshKey',
-		array('ssh_key=' => $ssh_key)
+		array('raw_key=' => $raw_key)
 	);
 	if ($data->count() != 0) return true;
 	else return false;
@@ -69,12 +79,17 @@ function return_error($e) {
 			));
 }
 
-function title_decode($title) {
-	return htmlspecialchars(base64_decode(rawurldecode($title)), ENT_QUOTES);
+function decode($content) {
+	return htmlspecialchars(base64_decode(rawurldecode($content)), ENT_QUOTES);
 }
 
-function key_decode($key) {
-	return htmlspecialchars(base64_decode(rawurldecode($key)), ENT_QUOTES);
+function valid($key) {
+	return (preg_match("/^ssh-(rsa|dss)/", $key) && !preg_match("/[ ]{2,}/", $key));
+}
+
+function refresh_admin($key) {
+	chdir(ADMIN_DIR);
+	exec("git pull");
 }
 
 function add_pub_key($ssh_key)

@@ -12,12 +12,6 @@ function login_authenticate($db, $username, $password)
 		'display_name' => $row['display_name'],
 		'username' => $row['name']
 	  ));
-      /*fSession::set('current_user', array(
-        'user_id' => $row['id'],
-        'username' => $row['name'],
-        'email' => $row['email'],
-        'display_name' => $row['display_name']
-      ));*/
       return true;
     } else {
       return false;

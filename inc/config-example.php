@@ -11,3 +11,4 @@ define('HOST_URL', 'http://localhost');
 define('SITE_BASE', '/git');
 define('LOGIN_PAGE', '/login/');
 define('KEY_DIR', '/home/git/gitolite-admin/keydir/');
+define('ADMIN_DIR', '/home/git/gitolite-admin/');
